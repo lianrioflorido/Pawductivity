@@ -1,0 +1,15 @@
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Pawductivity.exe
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Pawductivity.deps.json
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Pawductivity.runtimeconfig.json
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Pawductivity.dll
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Pawductivity.pdb
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.AssemblyInfoInputs.cache
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.AssemblyInfo.cs
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.csproj.CoreCompileInputs.cache
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.dll
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\refint\Pawductivity.dll
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.pdb
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\Pawductivity.genruntimeconfig.cache
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\obj\Debug\net8.0-windows\ref\Pawductivity.dll
+C:\Users\Juliana Rioflorido\Desktop\Pet digital\Pawductivity-main\bin\Debug\net8.0-windows\Assets\startup_bg.png
