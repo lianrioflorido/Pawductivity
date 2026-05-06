@@ -53,15 +53,21 @@ public class GameManager
         int moodBefore = Pet.Mood;
         int coinsBefore = Pet.Coins;
         int xpBefore = Pet.XP;
+        int levelBefore = Pet.Level;
+        int xpForNextLevelBefore = Pet.XpForNextLevel;
 
         task.Complete();
         Pet.ReactToTaskCompleted(task);
         TotalCompleted++;
         UpdateStreak();
 
+        int xpGained = Pet.Level > levelBefore
+        ? (xpForNextLevelBefore - xpBefore) + Pet.XP
+        : Pet.XP - xpBefore;
+
         return new PetChangeResult(
             true,
-            XpDelta: Pet.XP - xpBefore,
+            XpDelta: Math.Max(0, xpGained),
             MoodDelta: Pet.Mood - moodBefore,
             HealthDelta: Pet.Health - healthBefore,
             CoinDelta: Pet.Coins - coinsBefore,
@@ -143,14 +149,14 @@ public class GameManager
         int currentStreak,
         int longestStreak,
         DateTime? lastCompletionDate,
-        DateTime? lastPenaltyDate = null)   
+        DateTime? lastPenaltyDate = null)
     {
         Tasks = tasks;
         TotalCompleted = totalCompleted;
         CurrentStreak = currentStreak;
         LongestStreak = longestStreak;
         LastCompletionDate = lastCompletionDate;
-        LastPenaltyDate = lastPenaltyDate;  
+        LastPenaltyDate = lastPenaltyDate;
     }
 
     // ── Private helpers ──────────────────────────────────────────────
