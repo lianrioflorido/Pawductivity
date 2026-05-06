@@ -261,6 +261,7 @@ public class DashboardForm : Form
             Size = new Size(taskPanelW - InnerPad * 2, listH),
             View = View.Details,
             FullRowSelect = true,
+            HideSelection = false,
             GridLines = false,
             HotTracking = true,
             BackColor = PawTheme.Background,
@@ -278,6 +279,7 @@ public class DashboardForm : Form
         _lvTasks.Columns.Add("Status", 96);
 
         _lvTasks.OwnerDraw = true;
+        _lvTasks.ItemSelectionChanged += (s, e) => _lvTasks.Invalidate();
         _lvTasks.ColumnWidthChanging += (s, e) =>
         {
             e.Cancel = true;
@@ -338,14 +340,14 @@ public class DashboardForm : Form
         e.DrawDefault = false;
         if (e.Item?.Tag is not TaskItem task) return;
 
-        bool sel = (e.State & ListViewItemStates.Selected) != 0;
+        bool sel = e.Item.Selected;
         bool hot = (e.State & ListViewItemStates.Hot) != 0;
 
-        Color bg = sel ? PawTheme.Secondary :
-                   hot ? Color.FromArgb(255, 235, 245) :   // soft hover tint
+        Color bg = sel ? PawTheme.Primary :
+                   hot ? PawTheme.Secondary :
                    task.IsCompleted ? PawTheme.CompletedTask :
                    task.IsOverdue ? PawTheme.OverdueTask :
-                                      _lvTasks.BackColor;
+                                       _lvTasks.BackColor;
 
         using var brush = new SolidBrush(bg);
         e.Graphics.FillRectangle(brush, e.Bounds);
@@ -355,11 +357,14 @@ public class DashboardForm : Form
     {
         if (e.Item?.Tag is not TaskItem task) return;
 
-        bool sel = (e.ItemState & ListViewItemStates.Selected) != 0;
-        bool hot = (e.ItemState & ListViewItemStates.Hot) != 0;
+        bool sel = e.Item.Selected;
 
-        // Always use a visible foreground regardless of hover/selection state
-        Color fg = sel ? PawTheme.TextDark :
+        // fill background when selected
+        Color bgSub = sel ? PawTheme.Primary : Color.Transparent;
+        using var bgBrush = new SolidBrush(bgSub);
+        e.Graphics.FillRectangle(bgBrush, e.Bounds);
+
+        Color fg = sel ? Color.White :
                    task.IsCompleted ? PawTheme.TextGreen :
                                        PawTheme.TextDark;
 
