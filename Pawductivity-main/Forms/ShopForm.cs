@@ -1,4 +1,4 @@
-﻿using Pawductivity.Managers;
+using Pawductivity.Managers;
 using Pawductivity.Models;
 
 namespace Pawductivity.Forms;
@@ -22,9 +22,8 @@ public class ShopForm : Form
         // FORM SETTINGS (WINDOW)
         // =========================
         Text = "🛍️ Pawductivity Shop";
-        Size = new Size(540, 580);
         StartPosition = FormStartPosition.CenterParent;
-        FormBorderStyle = FormBorderStyle.FixedDialog;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;
         BackColor = PawTheme.Background;
 
@@ -72,6 +71,18 @@ public class ShopForm : Form
 
             y += 72; // move next card down
         }
+
+        var btnClose = new Button
+        {
+            Text = "Close",
+            Location = new Point(380, y + 10),
+            Width = 120,
+        };
+        PawTheme.StyleButton(btnClose, outlined: true);
+        btnClose.Click += (s, e) => Close();
+        Controls.Add(btnClose);
+
+        Size = new Size(540, y + 120);
     }
 
     // =========================
