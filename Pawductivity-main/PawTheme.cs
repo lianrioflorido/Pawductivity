@@ -1,4 +1,4 @@
-﻿using Pawductivity.Models;
+using Pawductivity.Models;
 
 namespace Pawductivity;
 
@@ -10,6 +10,17 @@ public static class PawTheme
 
     private static readonly AppTheme[] _themes =
     [
+        new(
+            "mono", "Monochrome",
+            Color.FromArgb(255, 255, 255), Color.FromArgb(240, 240, 240),
+            Color.FromArgb(30, 30, 30),   Color.FromArgb(60, 60, 60),
+            Color.FromArgb(200, 200, 200), Color.FromArgb(80, 80, 80),
+            Color.FromArgb(10, 10, 10),   Color.FromArgb(100, 100, 100),
+            Color.FromArgb(50, 50, 50),   Color.FromArgb(80, 80, 80),
+            Color.FromArgb(30, 30, 30),   Color.FromArgb(140, 200, 140),
+            Color.FromArgb(20, 100, 40),  Color.FromArgb(180, 50, 50),
+            Color.FromArgb(160, 160, 160)),
+
         new(
             "pink", "Pink Kawaii",
             Color.FromArgb(255, 240, 245), Color.FromArgb(255, 220, 230),
