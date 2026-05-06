@@ -14,20 +14,20 @@ public class StatsForm : Form
 
     private void InitializeComponent()
     {
-        Text            = "📊 Productivity Stats";
-        Size            = new Size(460, 480);
-        StartPosition   = FormStartPosition.CenterParent;
+        Text = "📊 Productivity Stats";
+        Size = new Size(470, 610);
+        StartPosition = FormStartPosition.CenterParent;
         FormBorderStyle = FormBorderStyle.FixedDialog;
-        MaximizeBox     = false;
-        BackColor       = PawTheme.Background;
+        MaximizeBox = false;
+        BackColor = PawTheme.Background;
 
         var title = new Label
         {
-            Text      = "📊 Your Stats",
-            Font      = PawTheme.FontTitle,
+            Text = "📊 Your Stats",
+            Font = PawTheme.FontTitle,
             ForeColor = PawTheme.Primary,
-            AutoSize  = true,
-            Location  = new Point(20, 15),
+            AutoSize = true,
+            Location = new Point(20, 15),
             BackColor = Color.Transparent,
         };
         Controls.Add(title);
@@ -50,26 +50,26 @@ public class StatsForm : Form
         {
             var row = new Panel
             {
-                Location  = new Point(20, y),
-                Size      = new Size(400, 36),
+                Location = new Point(20, y),
+                Size = new Size(400, 36),
                 BackColor = y % 72 == 8 ? PawTheme.Surface : PawTheme.Background,
             };
             row.Controls.Add(new Label
             {
-                Text      = label,
-                Font      = PawTheme.FontBody,
+                Text = label,
+                Font = PawTheme.FontBody,
                 ForeColor = PawTheme.TextMuted,
-                AutoSize  = true,
-                Location  = new Point(8, 8),
+                AutoSize = true,
+                Location = new Point(8, 8),
                 BackColor = Color.Transparent,
             });
             row.Controls.Add(new Label
             {
-                Text      = value,
-                Font      = new Font("Segoe UI", 9f, FontStyle.Bold),
+                Text = value,
+                Font = new Font("Segoe UI", 9f, FontStyle.Bold),
                 ForeColor = PawTheme.Primary,
-                AutoSize  = true,
-                Location  = new Point(260, 8),
+                AutoSize = true,
+                Location = new Point(260, 8),
                 BackColor = Color.Transparent,
             });
             Controls.Add(row);
@@ -80,23 +80,34 @@ public class StatsForm : Form
         y += 10;
         Controls.Add(new Label
         {
-            Text      = "Overall Completion",
-            Font      = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+            Text = "Overall Completion",
+            Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
             ForeColor = PawTheme.TextMuted,
-            AutoSize  = true,
-            Location  = new Point(20, y),
+            AutoSize = true,
+            Location = new Point(20, y),
             BackColor = Color.Transparent,
         });
-        y += 18;
+        y += 26;
         var pb = new ProgressBar
         {
             Location = new Point(20, y),
-            Size     = new Size(400, 16),
-            Minimum  = 0,
-            Maximum  = 100,
-            Value    = (int)_gm.CompletionRate,
-            Style    = ProgressBarStyle.Continuous,
+            Size = new Size(400, 16),
+            Minimum = 0,
+            Maximum = 100,
+            Value = (int)_gm.CompletionRate,
+            Style = ProgressBarStyle.Continuous,
         };
         Controls.Add(pb);
+
+        y += 40;
+        var btnClose = new Button
+        {
+            Text = "Close",
+            Location = new Point(300, y),
+            Width = 120,
+        };
+        PawTheme.StyleButton(btnClose, outlined: true);
+        btnClose.Click += (s, e) => Close();
+        Controls.Add(btnClose);
     }
 }
